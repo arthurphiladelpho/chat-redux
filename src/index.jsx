@@ -1,4 +1,4 @@
-// external modules
+  // external modules
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -9,6 +9,15 @@ import App from './components/app';
 import '../assets/stylesheets/application.scss';
 
 // State and reducers
+
+const initialState = {
+  messages: [],
+  channels: [ 'general', 'react', 'rio' ],
+  currentUser : prompt("Welcome! What's you're name?", 'John Appleseed' )
+                || `anonymous${Math.floor(10 + (Math.random() * 90))}`,
+  selectedChannel: 'general'
+};
+
 const reducers = combineReducers({
   changeMe: (state = null, action) => state
 });
