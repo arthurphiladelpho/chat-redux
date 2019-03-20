@@ -4,17 +4,17 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { logger } from 'redux-logger';
-import messagesReducer from './reducers/messages_reducer'
-import channelsReducer from './reducers/channels_reducer'
-import currentUserReducer from './reducers/current_user_reducer'
-import selectedChannelReducer from './reducers/selected_channel_reducer'
+import reduxPromise from 'redux-promise';
 
 // internal modules
 import App from './components/app';
 import '../assets/stylesheets/application.scss';
+import messagesReducer from './reducers/messages_reducer';
+import channelsReducer from './reducers/channels_reducer';
+import currentUserReducer from './reducers/current_user_reducer';
+import selectedChannelReducer from './reducers/selected_channel_reducer';
 
 // State and reducers
-
 const initialState = {
   messages: [],
   channels: [ 'general', 'react', 'rio' ],
@@ -30,7 +30,7 @@ const reducers = combineReducers({
   selectedChannel: selectedChannelReducer
 });
 
-const middlewares = applyMiddleware(logger);
+const middlewares = applyMiddleware(logger, reduxPromise);
 
 // render an instance of the component in the DOM
 ReactDOM.render(
