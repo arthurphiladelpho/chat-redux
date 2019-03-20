@@ -1,4 +1,4 @@
-  // external modules
+    // external modules
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
